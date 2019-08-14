@@ -1,16 +1,6 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    component: () => <h1>Hello from root routes :)</h1>
-  },
-  {
-    component: () => <Redirect to="/" />
-  }
-];
+import { routes } from "./pages";
 
-export const RootRoutes = () => <>{renderRoutes(routes)}</>;
+export const RootRoutes = () => <>{renderRoutes(routes())}</>;
