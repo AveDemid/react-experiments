@@ -1,5 +1,5 @@
 import { HomePage } from "./home/page";
-import { SocialCardsPage } from "./social-cards/page";
+import { WeatherPage } from "./weather/page";
 
 export const routes = () => [
   {
@@ -8,8 +8,8 @@ export const routes = () => [
     component: HomePage
   },
   {
-    path: "/social-cards",
+    path: "/weather",
     exact: true,
-    component: SocialCardsPage
+    component: WeatherPage
   }
 ];

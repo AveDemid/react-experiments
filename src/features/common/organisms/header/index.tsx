@@ -13,8 +13,8 @@ export const Header = () => (
         </MenuItem>
 
         <MenuItem>
-          <MenuLink to="/social-cards" exact>
-            Social Cards
+          <MenuLink to="/weather" exact>
+            Weather
           </MenuLink>
         </MenuItem>
       </Menu>
