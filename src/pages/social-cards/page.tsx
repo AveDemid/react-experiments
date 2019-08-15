@@ -1,12 +1,15 @@
 import React from "react";
-import { MainTemplate } from "@ui/templates";
+
 import { Header } from "@features/common";
+import { Card } from "@features/cards";
+
 import { Container } from "@ui/atoms";
+import { MainTemplate } from "@ui/templates";
 
 export const SocialCardsPage = () => (
   <MainTemplate header={<Header />}>
     <Container>
-      <h1>Hello from Social Cards Page</h1>
+      <Card />
     </Container>
   </MainTemplate>
 );
