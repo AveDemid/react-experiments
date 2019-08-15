@@ -18,4 +18,9 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: sans-serif;
   }
+
+  svg {
+    fill: currentColor;
+    display: block;
+  }
 `;

@@ -1,12 +1,13 @@
 import React from "react";
+import { Container } from "@ui/atoms";
 import { MainTemplate } from "@ui/templates";
 import { Header } from "@features/common";
-import { Container } from "@ui/atoms";
+import { Weather } from "@features/weather";
 
-export const SocialCardsPage = () => (
+export const WeatherPage = () => (
   <MainTemplate header={<Header />}>
     <Container>
-      <h1>Hello from Social Cards Page</h1>
+      <Weather />
     </Container>
   </MainTemplate>
 );
