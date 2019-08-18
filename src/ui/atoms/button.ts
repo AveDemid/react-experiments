@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 interface ButtonProps {
   buttonType: "link";
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export const Button = styled("button")<ButtonProps>`

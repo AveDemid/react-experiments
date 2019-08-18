@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { ParagraphLarge, ParagraphSmall } from "@ui/atoms";
 
 interface WeatherHeaderProps {
-  location: string;
-  date: string;
-  weather: string;
+  location: string | undefined;
+  date: string | undefined;
+  weather: string | undefined;
 }
 
 export const WeatherHeader = ({

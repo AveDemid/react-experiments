@@ -21,14 +21,18 @@ type WeatherIconTypes =
   | "50n";
 
 interface WeatherIconProps {
-  icon: WeatherIconTypes;
+  icon?: WeatherIconTypes;
 }
 
 export const WeatherIcon = ({ icon }: WeatherIconProps) => {
   return (
-    <img
-      style={{ width: "52px", height: "52px", userSelect: "none" }}
-      src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-    ></img>
+    <>
+      {icon && (
+        <img
+          style={{ width: "52px", height: "52px", userSelect: "none" }}
+          src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+        ></img>
+      )}
+    </>
   );
 };

@@ -1,0 +1,9 @@
+export { getAverageTemp } from "./get-avarage-temp";
+export { getMaxTemp } from "./get-max-temp";
+export { getMinTemp } from "./get-min-temp";
+export { getWeatherByDay } from "./get-weather-by-day";
+export { getIconCode } from "./get-icon-code";
+export { getArrayOfMinTemp } from "./get-array-of-min-temp";
+export { getArrayOfMaxTemp } from "./get-arrray-of-max-temp";
+export { getArrayOfIcons } from "./get-array-of-icons";
+export { getTempByScale } from "./get-temp-by-scale";

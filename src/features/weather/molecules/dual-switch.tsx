@@ -3,13 +3,29 @@ import styled from "styled-components";
 
 import { Button } from "@ui/atoms";
 
-export const DualSwitch = () => (
+interface DualSwitchProps {
+  setCurrentScale: React.Dispatch<React.SetStateAction<"F" | "C">>;
+  currentScale: "F" | "C";
+}
+
+export const DualSwitch = ({
+  setCurrentScale,
+  currentScale
+}: DualSwitchProps) => (
   <DialSwitchBox>
-    <Button buttonType="link" isActive={true} disabled={true}>
+    <Button
+      buttonType="link"
+      isActive={currentScale === "C"}
+      onClick={() => setCurrentScale("C")}
+    >
       °C
     </Button>{" "}
     |{" "}
-    <Button buttonType="link" isActive={false}>
+    <Button
+      buttonType="link"
+      isActive={currentScale === "F"}
+      onClick={() => setCurrentScale("F")}
+    >
       °F
     </Button>
   </DialSwitchBox>
