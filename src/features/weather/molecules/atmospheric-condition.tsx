@@ -1,22 +1,33 @@
 import React from "react";
+import styled from "styled-components";
+
 import { ParagraphExtraSmall } from "@ui/atoms/paragraph";
 
 interface AtmosphericConditionProps {
-  precipitation: number;
   humidity: number;
   wind: number;
+  windDeg: number;
 }
 
 export const AtmosphericCondition = ({
-  precipitation,
   humidity,
-  wind
+  wind,
+  windDeg
 }: AtmosphericConditionProps) => (
   <>
-    <ParagraphExtraSmall as="div">
-      Precipitation: {precipitation}%
-    </ParagraphExtraSmall>
     <ParagraphExtraSmall as="div">Humidity: {humidity}%</ParagraphExtraSmall>
-    <ParagraphExtraSmall as="div">Wind: ${wind} m/s</ParagraphExtraSmall>
+    <ParagraphExtraSmall as="div">
+      Wind: <Arrow rotate={windDeg}>&#8595;</Arrow> | {wind} m/s
+    </ParagraphExtraSmall>
   </>
 );
+
+interface Arrow {
+  rotate: number;
+}
+
+const Arrow = styled("span")<Arrow>`
+  display: inline-block;
+  transition: transform 0.5s;
+  transform: ${props => `rotate(${props.rotate}deg)`};
+`;
