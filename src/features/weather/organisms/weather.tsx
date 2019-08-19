@@ -25,26 +25,25 @@ interface WeatherProps {
   weatherForecast: WeatherForecast;
 }
 
-export const Weather = ({ weatherForecast }: WeatherProps) => {
-  const [currentDay, setCurrentDay] = useState<number>(0);
+export const Weather = ({ weatherForecast: { list, city } }: WeatherProps) => {
+  const [currentDayNumber, setCurrentDayNumber] = useState<number>(0);
   const [currentScale, setCurrentScale] = useState<"F" | "C">("C");
 
-  const { list, city } = weatherForecast;
-
   const weatherByDay = getWeatherByDay(list);
+  const currentDay = weatherByDay[currentDayNumber];
+
+  const location = city.name;
 
   const arrOfMaxTemp = getArrayOfMaxTemp(weatherByDay);
   const arrOfMinTemp = getArrayOfMinTemp(weatherByDay);
   const arrOfIcons = getArrayOfIcons(weatherByDay);
 
-  const currentTemp = getTempByScale(arrOfMaxTemp[currentDay], currentScale);
-  const currentIcon = weatherByDay[currentDay][0].weather[0].icon;
-  const currentHumidity = getHumidity(weatherByDay[currentDay]);
-  const currentWind = weatherByDay[currentDay][0].wind.speed;
-  const currentWindDeg = weatherByDay[currentDay][0].wind.deg;
-  const currentWeather = weatherByDay[currentDay][0].weather[0].description;
-
-  const location = city.name;
+  const currentTemp = getTempByScale(currentDay[0].main.temp, currentScale);
+  const currentIcon = currentDay[0].weather[0].icon;
+  const currentHumidity = getHumidity(currentDay);
+  const currentWind = currentDay[0].wind.speed;
+  const currentWindDeg = currentDay[0].wind.deg;
+  const currentWeather = currentDay[0].weather[0].description;
 
   return (
     <WeatherBox>
@@ -74,11 +73,11 @@ export const Weather = ({ weatherForecast }: WeatherProps) => {
           </RightArea>
         </WeatherDay>
         <WeatherForecastList
-          handleSetCurrentDay={setCurrentDay}
+          handleSetCurrentDay={setCurrentDayNumber}
           arrOfMaxTemp={arrOfMaxTemp}
           arrOfMinTemp={arrOfMinTemp}
           arrOfIcons={arrOfIcons}
-          currentDay={currentDay}
+          currentDay={currentDayNumber}
           currentScale={currentScale}
         />
       </Card>

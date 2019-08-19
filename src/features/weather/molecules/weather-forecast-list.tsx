@@ -82,5 +82,6 @@ export const WeatherDayWeek = styled("div")<WeatherDayWeek>`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 0 0px 10px -7px black;
   }
 `;
