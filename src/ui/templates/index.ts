@@ -1,1 +1,1 @@
-export { MainTemplate } from "./main-templates";
+export { MainTemplate } from "./main-template";

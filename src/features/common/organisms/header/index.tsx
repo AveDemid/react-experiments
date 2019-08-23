@@ -17,6 +17,12 @@ export const Header = () => (
             Weather
           </MenuLink>
         </MenuItem>
+
+        <MenuItem>
+          <MenuLink to="/calculator" exact>
+            Calculator
+          </MenuLink>
+        </MenuItem>
       </Menu>
     </ContainerFluid>
   </HeaderBox>

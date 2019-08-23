@@ -1,5 +1,6 @@
 import { HomePage } from "./home/page";
 import { WeatherPage } from "./weather/page";
+import { CalculatorPage } from "./calculator/page";
 
 export const routes = () => [
   {
@@ -11,5 +12,10 @@ export const routes = () => [
     path: "/weather",
     exact: true,
     component: WeatherPage
+  },
+  {
+    calculator: "/calculator",
+    exact: true,
+    component: CalculatorPage
   }
 ];
