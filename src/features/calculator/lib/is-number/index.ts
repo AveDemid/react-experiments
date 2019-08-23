@@ -1,0 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isNumber = (num: any) => {
+  if (typeof num === "number") {
+    return num - num === 0;
+  }
+  if (typeof num === "string" && num.trim() !== "") {
+    return Number.isFinite ? Number.isFinite(+num) : isFinite(+num);
+  }
+  return false;
+};

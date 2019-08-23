@@ -16,7 +16,6 @@ import {
   getTempByScale
 } from "./../lib";
 
-// TODO REMOVE LATTER
 import { WeatherForecast, Weather as WeatherType } from "./../types";
 
 const getHumidity = (list: WeatherType[]) => list[0].main.humidity;
@@ -87,7 +86,6 @@ export const Weather = ({ weatherForecast: { list, city } }: WeatherProps) => {
 
 export const WeatherBox = styled("div")`
   width: 63.4rem;
-  margin-top: 2rem;
   box-shadow: 0 0px 10px -7px black;
 `;
 

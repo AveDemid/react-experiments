@@ -1,5 +1,6 @@
 export { Container } from "./container";
 export { ContainerFluid } from "./container-fluid";
+export { PageContainer } from "./page-container";
 
 // Card
 export { Card } from "./card";

@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { PageContainer } from "./../atoms";
 
 interface MainTemplateProps {
   header?: JSX.Element;
-  children: JSX.Element[] | JSX.Element;
+  children: React.ReactNode;
 }
 
 export const MainTemplate = ({ header, children }: MainTemplateProps) => (
   <Layout>
     {header && <Header>{header}</Header>}
-    {children && <Content>{children}</Content>}
+    <Content>
+      <PageContainer>{children}</PageContainer>
+    </Content>
   </Layout>
 );
 
