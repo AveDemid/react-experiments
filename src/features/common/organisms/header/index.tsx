@@ -23,6 +23,10 @@ export const Header = () => (
             Calculator
           </MenuLink>
         </MenuItem>
+
+        <MenuItem>
+          <MenuLink to="/facebook/react/issues">Github Issues</MenuLink>
+        </MenuItem>
       </Menu>
     </ContainerFluid>
   </HeaderBox>

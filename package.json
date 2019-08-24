@@ -27,6 +27,7 @@
   "dependencies": {
     "effector": "^20.1.2",
     "effector-react": "^20.3.0",
+    "query-string": "^6.8.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-config": "^5.0.1",
