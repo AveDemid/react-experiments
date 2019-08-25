@@ -13,6 +13,7 @@ export const issuesToObject = (issuesList: Issue[]) =>
 
 export const $issueIds = createStore<number[]>([]);
 export const $issuesById = createStore<{ [key: string]: Issue }>({});
+export const $issuesIdsByPage = createStore<{ [key: string]: number[] }>({});
 export const $openIssuesCount = createStore<number>(0);
 
 $issueIds.on(fetchRepoIssues.done, (_, { result }) =>
@@ -22,6 +23,11 @@ $issueIds.on(fetchRepoIssues.done, (_, { result }) =>
 $issuesById.on(fetchRepoIssues.done, (state, { result }) => ({
   ...state,
   ...issuesToObject(result)
+}));
+
+$issuesIdsByPage.on(fetchRepoIssues.done, (state, { result, params }) => ({
+  ...state,
+  [params.page]: result.map(issue => issue.id)
 }));
 
 $openIssuesCount.on(

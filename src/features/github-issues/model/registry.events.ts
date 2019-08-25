@@ -1,4 +1,5 @@
 import { createEffect } from "effector";
+import { request } from "./../lib/request";
 
 import {
   Issue,
@@ -8,19 +9,15 @@ import {
 } from "./../types";
 
 export const fetchRepoIssues = createEffect<IssueRequestParams, Issue[]>();
-fetchRepoIssues.use(async ({ owner, repo, page = "1" }) => {
-  const url = `https://api.github.com/repos/${owner}/${repo}/issues?per_page=25&page=${page}`;
+fetchRepoIssues.use(({ owner, repo, page }) => {
+  const url = `/repos/${owner}/${repo}/issues?per_page=25&page=${page}`;
 
-  const response = await fetch(url);
-
-  return await response.json();
+  return request("GET", url);
 });
 
 export const fetchRepoDetail = createEffect<RepoDetailParams, RepoDetail>();
-fetchRepoDetail.use(async ({ owner, repo }) => {
-  const url = `https://api.github.com/repos/${owner}/${repo}`;
+fetchRepoDetail.use(({ owner, repo }) => {
+  const url = `/repos/${owner}/${repo}`;
 
-  const response = await fetch(url);
-
-  return await response.json();
+  return request("GET", url);
 });
