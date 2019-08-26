@@ -13,3 +13,5 @@ export {
   $issuesIdsByPage,
   $openIssuesCount
 } from "./model/registry.store";
+
+export { IssueList } from "./organisms/issues-list";

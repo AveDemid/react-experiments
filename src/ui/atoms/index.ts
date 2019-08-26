@@ -1,4 +1,4 @@
-export { Container } from "./container";
+export { Container, ContainerMedium } from "./container";
 export { ContainerFluid } from "./container-fluid";
 export { PageContainer } from "./page-container";
 
@@ -17,3 +17,7 @@ export {
 export { WeatherIcon } from "./weather-icon";
 
 export { Button } from "./button";
+
+export { Spinner } from "./spinner";
+
+export { Label } from "./label";

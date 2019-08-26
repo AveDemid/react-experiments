@@ -1,7 +1,8 @@
 import { HomePage } from "./home/page";
 import { WeatherPage } from "./weather/page";
 import { CalculatorPage } from "./calculator/page";
-import { GithubIssuesPage } from "./gtihub-issues/page";
+import { IssuesPage } from "./gtihub-issues/issues/page";
+import { IssuePage } from "./gtihub-issues/issue/page";
 
 export const routes = () => [
   {
@@ -22,6 +23,11 @@ export const routes = () => [
   {
     path: "/:owner/:repo/issues",
     exact: true,
-    component: GithubIssuesPage
+    component: IssuesPage
+  },
+  {
+    path: "/:owner/:repo/issues/:number",
+    exact: true,
+    component: IssuePage
   }
 ];

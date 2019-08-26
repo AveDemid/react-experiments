@@ -4,28 +4,31 @@ import { useStore } from "effector-react";
 import { RouteComponentProps } from "react-router-dom";
 
 import { Header } from "@features/common";
+
 import {
   $issuesById,
   $issuesIdsByPage,
-  $openIssuesCount
+  $openIssuesCount,
+  IssueList
 } from "@features/github-issues";
+
 import { Pagination } from "@features/pagination";
 
-import { Container } from "@ui/atoms";
+import { ContainerMedium, ParagraphExtraLarge } from "@ui/atoms";
 import { MainTemplate } from "@ui/templates";
 
 import { pageReady } from "./model";
 
-interface GithubIssuesLocation {
+interface IssuesPageUrl {
   owner: string;
   repo: string;
 }
 
-export const GithubIssuesPage = ({
+export const IssuesPage = ({
   match,
   location,
   history
-}: RouteComponentProps<GithubIssuesLocation>) => {
+}: RouteComponentProps<IssuesPageUrl>) => {
   const { search } = location;
   // eslint-disable-next-line
   const { params: { owner, repo }} = match;
@@ -34,25 +37,12 @@ export const GithubIssuesPage = ({
   const issuesById = useStore($issuesById);
   const issuesIdsByPage = useStore($issuesIdsByPage);
   const openIssuesCount = useStore($openIssuesCount);
+  const issuesIds = issuesIdsByPage && issuesIdsByPage[currentPage];
+  const issuesList = issuesIds && issuesIds.map(issue => issuesById[issue]);
 
   useEffect(() => {
     pageReady({ owner, repo, page: currentPage });
   }, [currentPage, history, owner, repo, search]);
-
-  const issues =
-    currentPage && issuesIdsByPage[currentPage] ? (
-      <div>
-        {issuesIdsByPage[currentPage].map(id => (
-          <div key={id}>
-            <h2>{issuesById[id].title}</h2>
-          </div>
-        ))}
-      </div>
-    ) : (
-      <div>
-        <h2>Loading...</h2>
-      </div>
-    );
 
   const issuesPerPage = 25;
   const totalNumberPages = Math.ceil(openIssuesCount / issuesPerPage);
@@ -64,14 +54,19 @@ export const GithubIssuesPage = ({
 
   return (
     <MainTemplate header={<Header />}>
-      <Container>
-        {issues}
+      <ContainerMedium>
+        {!!openIssuesCount && (
+          <ParagraphExtraLarge>
+            {openIssuesCount} open issues for {owner} / {repo}
+          </ParagraphExtraLarge>
+        )}
+        {issuesList && <IssueList list={issuesList} />}
         <Pagination
           totalNumberPages={totalNumberPages}
           onPageChange={handlePageChange}
           currentPage={currentPage}
         />
-      </Container>
+      </ContainerMedium>
     </MainTemplate>
   );
 };
