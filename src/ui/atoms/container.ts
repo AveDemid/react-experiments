@@ -26,3 +26,17 @@ export const Container = styled("div")`
     max-width: 114rem;
   }
 `;
+
+export const ContainerMedium = styled("div")`
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  @media (min-width: ${breakpoints.small}) {
+    max-width: 54rem;
+  }
+  @media (min-width: ${breakpoints.medium}) {
+    max-width: 72rem;
+  }
+`;
