@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from "react";
 
 import { usePromiseAll } from "./../hooks/use-promise-all";
